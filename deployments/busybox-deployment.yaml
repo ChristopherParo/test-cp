@@ -1,24 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: busybox-deployment
+  name: hello-world-deployment
   labels:
-    app: busybox
+    app: hello-world
 spec:
   replicas: 2
   strategy: 
     type: RollingUpdate
   selector:
     matchLabels:
-      app: busybox
+      app: hello-world
   template:
     metadata:
       labels:
-        app: busybox
+        app: hello-world
     spec:
       containers:
-      - name: busybox
-        image: busybox
+      - name: hello-world
+        image: hello-world
         imagePullPolicy: IfNotPresent
-        
-        command: ['sh', '-c', 'echo Container 1 is Running']
